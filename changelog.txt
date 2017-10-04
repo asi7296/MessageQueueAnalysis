@@ -1,0 +1,14 @@
+installed erlang
+installed rabbitmq
+started rabbitmq service
+went to rabbitmq command prompt: rabbitmq_plugins enable rabbitmq_management
+rabbitmq_management server started on localhost:15672
+created new queue: TestQueue0
+installed eclipse
+downloaded amqp-client-5.0.0.jar
+downloaded commons-cli-1.4.jar
+downloaded commons-io-2.5.jar
+downloaded sl4j-1.7.25.zip 
+need only sl4j-api-1.7.25.jar and sl4j-jdk14-1.7.25.jar
+Code works
+In the rabbitMQ management interface, select the queue -> "Get messages"
