@@ -68,7 +68,7 @@ public class Renderer {
 		help_btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(e);
+				JOptionPane.showMessageDialog(null, "Visit: www.github.com/asi7296/MessageQueueAnalysis");
 			}
 		});
 		

@@ -5,7 +5,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 
-public class MQTest0 {
+public class Init {
 	public static void main(String[] args) throws IOException, TimeoutException {
 		
 		Renderer renderer = new Renderer();	
@@ -15,6 +15,13 @@ public class MQTest0 {
 				}
 		}
 }
+
+/*
+ * Init -> Renderer -> BenchmarkController -> Transfers control to RabbitMQControl, KafkaControl or ZeroMQControl
+ * which will set up connections to the queues, and send connection objects to Loader along with workload type
+ * Loader will then run workloads, and measure metrics through LatencyMonitor and ThroughputMontior
+ * 
+ */
 
 /*ConnectionFactory connectionFactory = new ConnectionFactory();
 connectionFactory.setHost("localhost");
