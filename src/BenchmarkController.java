@@ -13,9 +13,10 @@ public class BenchmarkController {
 
 	public boolean launchBenchmark() {
 		// we now have the queue type and workload type, pass that to the corresponding class
-		System.out.println(this.mq_type + this.workload_type);
 		
-		// implement a factory design pattern here?
+		WorkloadSpec workload_spec = WorkloadSpecFactory.generateSpec(this.workload_type);
+		workload_spec.workloadReport();
+		
 		switch(this.mq_type) {
 			case "RabbitMQ": System.out.println("calling rbmq");
 							 return true;

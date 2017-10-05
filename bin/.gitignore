@@ -7,3 +7,7 @@
 /LatencyMonitor.class
 /ThroughputMonitor.class
 /Loader.class
+/WorkloadSpecFactory.class
+/WorkloadSpec.class
+/WorkloadSpecFactory$1.class
+/WorkloadSpecFactory$2.class

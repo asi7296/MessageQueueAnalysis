@@ -7,7 +7,7 @@ public class Renderer {
 	
 	private boolean mainWinowRendered = false;
 	private int screen_h, screen_w;
-	private final String[] workload_types = {"1", "2", "3"};
+	private final String[] workload_types = {"SM_I_F", "SM_I_V", "SM_C_F", "SM_C_V", "BM_I_F", "BM_I_V", "BM_C_F", "BM_C_V"};
 	private final String[] mq_types = {"RabbitMQ", "Kafka", "ZeroMQ" };
 	
 	
