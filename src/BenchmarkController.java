@@ -18,14 +18,13 @@ public class BenchmarkController {
 		workload_spec.workloadReport();
 		
 		switch(this.mq_type) {
-			case "RabbitMQ": System.out.println("calling rbmq");
-							 return true;
+			case "RabbitMQ": return RabbitController.runLoad(workload_spec);
+							 
 							
-			case "Kafka": System.out.println("calling kafka");
-			 			  return true;
+			case "Kafka": return KafkaController.runLoad(workload_spec);
+			 			  
 			 
-			case "ZeroMQ":  System.out.println("calling ZeroMQ");
-			 				return true;
+			case "ZeroMQ":  return ZeroController.runLoad(workload_spec);
 			
 			default: return false;
 		}
