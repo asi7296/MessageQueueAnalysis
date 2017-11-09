@@ -21,10 +21,10 @@ public class BenchmarkController {
 			case "RabbitMQ": System.out.println("calling rbmq");
 							 return true;
 							
-			case "Kafka": System.out.println("calling rbmq");
+			case "Kafka": System.out.println("calling kafka");
 			 			  return true;
 			 
-			case "ZeroMQ":  System.out.println("calling rbmq");
+			case "ZeroMQ":  System.out.println("calling ZeroMQ");
 			 				return true;
 			
 			default: return false;
