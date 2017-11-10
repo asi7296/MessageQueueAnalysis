@@ -7,14 +7,14 @@ public class WorkloadSpec {
 	public final int num_msg = 4096;
 	public String behavior;
 	public int msg_size;
-	public float interval;
+	public int interval;
 	public int num_threads;
 	public int batch_size;
 	public float num_batches;
 	public String[] payload = new String[num_msg];
 	
 	// iterative cotr
-	public WorkloadSpec(String name, String behavior, int msg_size, float interval) {
+	public WorkloadSpec(String name, String behavior, int msg_size, int interval) {
 		this.name = name;
 		this.behavior = behavior;
 		this.msg_size = msg_size;
@@ -34,7 +34,7 @@ public class WorkloadSpec {
 	}
 	
 	// concurrent cotr
-	public WorkloadSpec(String name, String behavior, int numThreads, int msg_size, float interval) {
+	public WorkloadSpec(String name, String behavior, int numThreads, int msg_size, int interval) {
 		this.name = name;
 		this.behavior = behavior;
 		this.num_threads = numThreads;
