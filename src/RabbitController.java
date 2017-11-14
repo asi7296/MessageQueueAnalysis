@@ -1,4 +1,5 @@
 import java.util.concurrent.TimeUnit;
+import java.util.Arrays;
 
 public class RabbitController {
 
@@ -13,7 +14,7 @@ public class RabbitController {
 			return false;
 		}
 
-		System.out.println("Rabbit Controller init with workload: " + workload_spec.name);
+		System.out.println("Zero Controller init with workload: " + workload_spec.name);
 
 		// non batch mode
 		if(workload_spec.num_batches == 1) {
@@ -50,6 +51,20 @@ public class RabbitController {
 			
 			case "concurrent":
 				// create num_thread workers, each send messages in payload iteratively, wait for 2s inbetween each
+				singleMessageStreamConc[] threadarr = new singleMessageStreamConc[workload_spec.num_threads];	
+				int pos = workload_spec.num_msg / workload_spec.num_threads;
+				
+				String[][] payload_split = new String[workload_spec.num_threads][];
+				payload_split[0] = Arrays.copyOfRange(workload_spec.payload, 0, pos);
+				payload_split[1] = Arrays.copyOfRange(workload_spec.payload, pos, 2*pos);
+				payload_split[2] = Arrays.copyOfRange(workload_spec.payload, 2*pos, 3*pos);
+				payload_split[3] = Arrays.copyOfRange(workload_spec.payload, 3*pos, 4*pos); 
+				
+				for(int i = 0; i < workload_spec.num_threads; i++) {
+					threadarr[i] = new singleMessageStreamConc(payload_split[i]);
+					threadarr[i].start();	
+				}
+				
 				break;
 
 			default:
@@ -60,5 +75,16 @@ public class RabbitController {
 	private static void batchRunner(WorkloadSpec workload_spec) {
 		// figure this out
 	}
+
+	
+	
+	private static class singleMessageStreamConc extends Thread {
+		public singleMessageStreamConc(String[] thread_payload) {
+			System.out.println(thread_payload.length);
+		}
+		public void run() {
+			System.out.println("thread");
+		}
+	}	
 
 }

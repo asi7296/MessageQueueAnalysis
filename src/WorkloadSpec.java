@@ -102,8 +102,8 @@ public class WorkloadSpec {
 		System.out.println("# Batches: " + this.num_batches);
 		System.out.println("Payload Generated - 4096 messages");
 		
-		/*for(int i = 0; i < num_msg; i++) {
+		for(int i = 0; i < num_msg; i++) {
 			System.out.print("Size of msg: " + this.payload[i].length() + ' ');
-		}*/
+		}
 	}
 }
