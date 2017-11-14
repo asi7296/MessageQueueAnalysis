@@ -36,19 +36,19 @@ public class WorkloadSpecFactory {
 			}
 			case "BM_I_F": {
 				// batch message stream - random size, batches sent iteratively, fixed length messages, every 2s
-				obj = new WorkloadSpec(mq_type, "batch", 1024, 2);
+				obj = new WorkloadSpec(mq_type, "iterbatch", 1024, 2);
 				break;
 			}
 			case "BM_I_V": {
-				obj = new WorkloadSpec(mq_type, "batch", -1, 2);
+				obj = new WorkloadSpec(mq_type, "iterbatch", -1, 2);
 				break;
 			}
 			case "BM_C_F": {
-				obj = new WorkloadSpec(mq_type, "batch", 4, 1024, 2);
+				obj = new WorkloadSpec(mq_type, "concbatch", 4, 1024, 2);
 				break;
 			}
 			case "BM_C_V": {
-				obj = new WorkloadSpec(mq_type, "batch", 4, -1, 2);
+				obj = new WorkloadSpec(mq_type, "concbatch", 4, -1, 2);
 				break;
 			}
 		}
