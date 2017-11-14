@@ -8,7 +8,7 @@ public class RabbitController {
 	}
 
 	public static boolean runLoad(WorkloadSpec workload_spec) {
-		if( ! KafkaController.connect() ) {
+		if( ! RabbitController.connect() ) {
 			System.out.println("Error: could not connect to queue");
 			return false;
 		}
@@ -18,13 +18,13 @@ public class RabbitController {
 		// non batch mode
 		if(workload_spec.num_batches == 1) {
 			System.out.println("1 batch");
-			KafkaController.singleMessageStreamRunner(workload_spec);
+			RabbitController.singleMessageStreamRunner(workload_spec);
 		}
 
 		// batch mode
 		else {
 			System.out.println(workload_spec.num_batches + " Batches");
-			KafkaController.batchRunner(workload_spec);
+			RabbitController.batchRunner(workload_spec);
 		}
 
 		return true;
